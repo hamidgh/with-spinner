@@ -1,0 +1,54 @@
+.activity-indicator {
+  top: 0;
+
+  &--wrap {
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+  }
+
+  &--items {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  &--wrap &--items {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    visibility: visible;
+    width: 100%;
+  }
+
+  &--toggler {
+    visibility: hidden;
+  }
+
+  &--spinner {
+    font-size: 7em;
+  }
+}
+
+.hidden {
+  display: none !important; //NOTE: Used important since views are display flex and this needs to override them
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .activity-indicator--spinner {
+    animation: indicator-spin infinite 2s linear;
+  }
+}
+
+@keyframes indicator-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
